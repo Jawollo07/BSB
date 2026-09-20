@@ -160,30 +160,31 @@
 			line-height: 1.4;
 		}
 
-		/* Big number cards for points */
+		/* Big number cards for points – kompakter & besser skaliert */
 		.points-grid {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			gap: 1.4em;
-			margin-top: 1.5em;
+			gap: 1em;
+			margin-top: 1.2em;
+			max-width: 900px;
 		}
 
 		.point-card {
 			background: linear-gradient(160deg, rgba(255,107,0,0.12), rgba(255,107,0,0.03));
 			border: 2px solid var(--orange);
-			border-radius: 16px;
-			padding: 1.5em 1em;
+			border-radius: 14px;
+			padding: 1.1em 0.8em;
 			text-align: center;
 			transition: transform 0.25s ease, box-shadow 0.25s ease;
 		}
 
 		.point-card:hover {
-			transform: scale(1.05);
-			box-shadow: 0 0 30px rgba(255, 107, 0, 0.25);
+			transform: scale(1.04);
+			box-shadow: 0 0 24px rgba(255, 107, 0, 0.25);
 		}
 
 		.point-card .number {
-			font-size: 3.2em;
+			font-size: 2.4em;
 			font-weight: 800;
 			color: var(--orange);
 			line-height: 1;
@@ -191,15 +192,15 @@
 		}
 
 		.point-card .label {
-			font-size: 0.85em;
+			font-size: 0.8em;
 			color: var(--text);
 			font-weight: 600;
 		}
 
 		.point-card .desc {
-			font-size: 0.7em;
+			font-size: 0.65em;
 			color: var(--text-muted);
-			margin-top: 0.35em;
+			margin-top: 0.3em;
 		}
 
 		/* Time rule rows */
