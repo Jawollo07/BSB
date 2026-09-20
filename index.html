@@ -11,277 +11,217 @@
 	<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
 
 	<style>
-		/* ========== CUSTOM BASKETBALL THEME ========== */
 		:root {
 			--orange: #ff6b00;
-			--orange-light: #ff8c33;
-			--orange-dark: #e55a00;
 			--bg-dark: #0b0b0f;
-			--bg-card: rgba(255, 255, 255, 0.04);
-			--bg-card-hover: rgba(255, 107, 0, 0.08);
-			--border: rgba(255, 107, 0, 0.25);
-			--text: #f5f5f5;
-			--text-muted: #a0a0a8;
+			--bg-card: rgba(255, 255, 255, 0.045);
+			--bg-card-hover: rgba(255, 107, 0, 0.09);
+			--border: rgba(255, 107, 0, 0.28);
+			--text: #f0f0f2;
+			--text-muted: #9a9aa3;
 		}
 
 		.reveal {
 			font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 			background: var(--bg-dark);
+			font-size: 32px; /* Basis für em-Werte */
 		}
 
 		.reveal .slides {
 			text-align: left;
 		}
 
+		.reveal .slides section {
+			padding: 0 4%;
+			box-sizing: border-box;
+		}
+
 		.reveal h1, .reveal h2, .reveal h3 {
-			font-family: 'Segoe UI', system-ui, sans-serif;
+			font-family: inherit;
 			font-weight: 700;
 			text-transform: none;
 			letter-spacing: -0.02em;
 			color: #fff;
+			margin: 0;
 		}
 
-		.reveal h1 {
-			font-size: 2.8em;
-			margin-bottom: 0.3em;
-		}
-
+		.reveal h1 { font-size: 2.2em; }
 		.reveal h2 {
-			font-size: 1.9em;
-			margin-bottom: 0.6em;
+			font-size: 1.45em;
 			color: var(--orange);
-			border-bottom: 3px solid var(--orange);
-			padding-bottom: 0.25em;
+			border-bottom: 2.5px solid var(--orange);
+			padding-bottom: 0.18em;
+			margin-bottom: 0.7em;
 			display: inline-block;
 		}
 
-		.reveal p, .reveal li, .reveal td {
+		.reveal p {
 			color: var(--text);
-			font-size: 0.95em;
-			line-height: 1.5;
+			font-size: 0.78em;
+			line-height: 1.45;
+			margin: 0;
 		}
 
-		.reveal ul {
-			list-style: none;
-			padding-left: 0;
-		}
-
-		.reveal ul li {
-			position: relative;
-			padding-left: 1.6em;
-			margin-bottom: 0.7em;
-		}
-
-		.reveal ul li::before {
-			content: "●";
-			color: var(--orange);
-			position: absolute;
-			left: 0;
-			font-size: 0.7em;
-			top: 0.25em;
-		}
-
-		/* Title slide special */
-		.reveal .title-slide {
-			text-align: center !important;
-		}
-
+		/* ===== Title ===== */
+		.reveal .title-slide { text-align: center !important; }
 		.reveal .title-slide h1 {
-			font-size: 3.2em;
-			background: linear-gradient(135deg, #fff 30%, var(--orange));
+			font-size: 2.5em;
+			background: linear-gradient(135deg, #fff 25%, var(--orange));
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;
-			margin-bottom: 0.2em;
+			margin-bottom: 0.15em;
 		}
-
 		.reveal .title-slide .subtitle {
-			font-size: 1.15em;
+			font-size: 0.9em;
 			color: var(--text-muted);
-			margin-top: 0.5em;
 		}
-
 		.reveal .title-slide .ball {
-			font-size: 4em;
-			margin-bottom: 0.3em;
+			font-size: 3em;
 			display: block;
+			margin-bottom: 0.25em;
 			animation: bounce 2s ease-in-out infinite;
 		}
-
 		@keyframes bounce {
 			0%, 100% { transform: translateY(0); }
-			50% { transform: translateY(-12px); }
+			50% { transform: translateY(-10px); }
 		}
 
-		/* Cards */
+		/* ===== Cards ===== */
 		.card-grid {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			gap: 1.2em;
-			margin-top: 1em;
+			gap: 0.7em;
 		}
-
 		.card-grid.three {
 			grid-template-columns: 1fr 1fr 1fr;
 		}
-
 		.card {
 			background: var(--bg-card);
 			border: 1px solid var(--border);
-			border-radius: 12px;
-			padding: 1.1em 1.2em;
-			transition: all 0.25s ease;
+			border-radius: 10px;
+			padding: 0.75em 0.85em;
+			transition: background 0.2s, border-color 0.2s, transform 0.2s;
 		}
-
 		.card:hover {
 			background: var(--bg-card-hover);
 			border-color: var(--orange);
-			transform: translateY(-3px);
+			transform: translateY(-2px);
 		}
-
 		.card .icon {
-			font-size: 1.8em;
-			margin-bottom: 0.35em;
+			font-size: 1.35em;
 			display: block;
+			margin-bottom: 0.25em;
 		}
-
 		.card h3 {
-			font-size: 1.05em;
+			font-size: 0.82em;
 			color: var(--orange);
-			margin: 0 0 0.3em 0;
+			margin-bottom: 0.2em;
 			border: none;
 			padding: 0;
 		}
-
 		.card p {
-			font-size: 0.82em;
+			font-size: 0.68em;
 			color: var(--text-muted);
-			margin: 0;
-			line-height: 1.4;
+			line-height: 1.35;
 		}
 
-		/* Big number cards for points – kompakter & besser skaliert */
+		/* ===== Points ===== */
 		.points-grid {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			gap: 1em;
-			margin-top: 1.2em;
-			max-width: 900px;
+			gap: 0.8em;
+			margin-top: 0.3em;
 		}
-
 		.point-card {
-			background: linear-gradient(160deg, rgba(255,107,0,0.12), rgba(255,107,0,0.03));
+			background: linear-gradient(160deg, rgba(255,107,0,0.13), rgba(255,107,0,0.03));
 			border: 2px solid var(--orange);
-			border-radius: 14px;
-			padding: 1.1em 0.8em;
+			border-radius: 12px;
+			padding: 0.9em 0.5em;
 			text-align: center;
-			transition: transform 0.25s ease, box-shadow 0.25s ease;
+			transition: transform 0.2s, box-shadow 0.2s;
 		}
-
 		.point-card:hover {
 			transform: scale(1.04);
-			box-shadow: 0 0 24px rgba(255, 107, 0, 0.25);
+			box-shadow: 0 0 20px rgba(255, 107, 0, 0.22);
 		}
-
 		.point-card .number {
-			font-size: 2.4em;
+			font-size: 2em;
 			font-weight: 800;
 			color: var(--orange);
 			line-height: 1;
-			margin-bottom: 0.15em;
+			margin-bottom: 0.12em;
 		}
-
 		.point-card .label {
-			font-size: 0.8em;
+			font-size: 0.72em;
 			color: var(--text);
 			font-weight: 600;
 		}
-
 		.point-card .desc {
-			font-size: 0.65em;
+			font-size: 0.58em;
 			color: var(--text-muted);
-			margin-top: 0.3em;
+			margin-top: 0.25em;
 		}
 
-		/* Time rule rows */
+		/* ===== Time rules ===== */
 		.rule-list {
 			display: flex;
 			flex-direction: column;
-			gap: 0.9em;
-			margin-top: 0.8em;
+			gap: 0.55em;
 		}
-
 		.rule-item {
 			display: flex;
-			gap: 1em;
+			gap: 0.7em;
 			align-items: flex-start;
 			background: var(--bg-card);
-			border-left: 4px solid var(--orange);
-			border-radius: 0 10px 10px 0;
-			padding: 0.9em 1.1em;
+			border-left: 3.5px solid var(--orange);
+			border-radius: 0 8px 8px 0;
+			padding: 0.55em 0.75em;
 		}
-
 		.rule-item .time-badge {
 			background: var(--orange);
 			color: #111;
 			font-weight: 800;
-			font-size: 0.95em;
-			padding: 0.35em 0.7em;
-			border-radius: 8px;
-			min-width: 3.2em;
+			font-size: 0.72em;
+			padding: 0.28em 0.55em;
+			border-radius: 6px;
+			min-width: 2.6em;
 			text-align: center;
 			flex-shrink: 0;
 		}
-
 		.rule-item .rule-content h3 {
-			font-size: 0.95em;
+			font-size: 0.78em;
 			color: #fff;
-			margin: 0 0 0.2em 0;
+			margin-bottom: 0.12em;
 			border: none;
 			padding: 0;
 		}
-
 		.rule-item .rule-content p {
-			font-size: 0.78em;
+			font-size: 0.62em;
 			color: var(--text-muted);
-			margin: 0;
-			line-height: 1.4;
+			line-height: 1.35;
 		}
 
-		/* Footer note */
-		.footer-note {
-			font-size: 0.7em !important;
-			color: var(--text-muted) !important;
-			margin-top: 1.5em;
-			opacity: 0.8;
-		}
-
-		/* End slide */
-		.reveal .end-slide {
-			text-align: center !important;
-		}
-
+		/* ===== End ===== */
+		.reveal .end-slide { text-align: center !important; }
 		.reveal .end-slide h2 {
 			border: none;
 			color: #fff;
-			font-size: 2.2em;
+			font-size: 1.7em;
 		}
-
 		.reveal .end-slide .ball-big {
-			font-size: 3.5em;
-			margin: 0.4em 0;
+			font-size: 2.6em;
+			margin: 0.3em 0;
+		}
+		.footer-note {
+			font-size: 0.6em !important;
+			color: var(--text-muted) !important;
+			margin-top: 0.8em;
 		}
 
-		/* Accent text */
 		.accent {
 			color: var(--orange);
 			font-weight: 700;
-		}
-
-		/* Smaller text helper */
-		.reveal .small {
-			font-size: 0.75em;
-			color: var(--text-muted);
 		}
 	</style>
 </head>
@@ -289,14 +229,14 @@
 	<div class="reveal">
 		<div class="slides">
 
-			<!-- ========== TITEL ========== -->
+			<!-- Titelfolie -->
 			<section class="title-slide">
 				<span class="ball">🏀</span>
 				<h1>Basketball Regeln</h1>
 				<p class="subtitle">Die wichtigsten FIBA-Regeln im Überblick</p>
 			</section>
 
-			<!-- ========== GRUNDLAGEN ========== -->
+			<!-- Grundlagen -->
 			<section>
 				<h2>Grundlagen</h2>
 				<div class="card-grid three">
@@ -318,7 +258,7 @@
 				</div>
 			</section>
 
-			<!-- ========== TEAMS ========== -->
+			<!-- Teams -->
 			<section>
 				<h2>Teams & Spieler</h2>
 				<div class="card-grid">
@@ -345,7 +285,7 @@
 				</div>
 			</section>
 
-			<!-- ========== PUNKTE ========== -->
+			<!-- Punkte -->
 			<section>
 				<h2>Punktevergabe</h2>
 				<div class="points-grid">
@@ -367,7 +307,7 @@
 				</div>
 			</section>
 
-			<!-- ========== ZEITREGELN ========== -->
+			<!-- Zeitregeln -->
 			<section>
 				<h2>Zeitregeln</h2>
 				<div class="rule-list">
@@ -402,7 +342,7 @@
 				</div>
 			</section>
 
-			<!-- ========== WEITERE REGELN ========== -->
+			<!-- Weitere Regeln -->
 			<section>
 				<h2>Weitere wichtige Regeln</h2>
 				<div class="card-grid">
@@ -429,7 +369,7 @@
 				</div>
 			</section>
 
-			<!-- ========== ABSCHLUSS ========== -->
+			<!-- Abschluss -->
 			<section class="end-slide">
 				<div class="ball-big">🏀</div>
 				<h2>Viel Spaß beim Basketball!</h2>
@@ -448,6 +388,11 @@
 			hash: true,
 			transition: 'slide',
 			backgroundTransition: 'fade',
+			width: 1100,
+			height: 700,
+			margin: 0.08,
+			minScale: 0.3,
+			maxScale: 1.4,
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 		});
 	</script>
