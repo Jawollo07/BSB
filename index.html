@@ -1,143 +1,454 @@
 <!DOCTYPE html>
 <html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-		/>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Basketball Regeln</title>
 
-		<title>Basketball Regeln</title>
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/black.css" />
+	<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
 
-		<link rel="stylesheet" href="dist/reset.css" />
-		<link rel="stylesheet" href="dist/reveal.css" />
-		<link rel="stylesheet" href="dist/theme/black.css" />
+	<style>
+		/* ========== CUSTOM BASKETBALL THEME ========== */
+		:root {
+			--orange: #ff6b00;
+			--orange-light: #ff8c33;
+			--orange-dark: #e55a00;
+			--bg-dark: #0b0b0f;
+			--bg-card: rgba(255, 255, 255, 0.04);
+			--bg-card-hover: rgba(255, 107, 0, 0.08);
+			--border: rgba(255, 107, 0, 0.25);
+			--text: #f5f5f5;
+			--text-muted: #a0a0a8;
+		}
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+		.reveal {
+			font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+			background: var(--bg-dark);
+		}
 
-				<!-- Titelfolie -->
-				<section>
-					<h1>Basketball Regeln</h1>
-					<p>Die wichtigsten Regeln im Überblick</p>
-				</section>
+		.reveal .slides {
+			text-align: left;
+		}
 
-				<!-- Grundlagen -->
-				<section>
-					<h2>Grundlagen</h2>
-					<ul>
-						<li><strong>Spielzeit:</strong> 4 × 10 Minuten (FIBA)</li>
-						<li><strong>Ziel:</strong> Mehr Punkte als der Gegner erzielen</li>
-						<li><strong>Pause:</strong> 2 Minuten zwischen den Vierteln, 15 Minuten zur Halbzeit</li>
-					</ul>
-				</section>
+		.reveal h1, .reveal h2, .reveal h3 {
+			font-family: 'Segoe UI', system-ui, sans-serif;
+			font-weight: 700;
+			text-transform: none;
+			letter-spacing: -0.02em;
+			color: #fff;
+		}
 
-				<!-- Teams -->
-				<section>
-					<h2>Teams</h2>
-					<ul>
-						<li>2 Mannschaften mit je <strong>5 Spielern</strong> auf dem Feld</li>
-						<li>Maximal <strong>7 Auswechselspieler</strong> pro Team (Gesamtkader meist 12)</li>
-						<li>Auswechslungen sind unbegrenzt und können während Unterbrechungen erfolgen</li>
-					</ul>
-				</section>
+		.reveal h1 {
+			font-size: 2.8em;
+			margin-bottom: 0.3em;
+		}
 
-				<!-- Punkte -->
-				<section>
-					<h2>Punktevergabe</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Wurfart</th>
-								<th>Punkte</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Freiwurf</td>
-								<td><strong>1 Punkt</strong></td>
-							</tr>
-							<tr>
-								<td>Feldwurf (innerhalb der Dreierlinie)</td>
-								<td><strong>2 Punkte</strong></td>
-							</tr>
-							<tr>
-								<td>Dreipunktwurf (hinter der Dreierlinie)</td>
-								<td><strong>3 Punkte</strong></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
+		.reveal h2 {
+			font-size: 1.9em;
+			margin-bottom: 0.6em;
+			color: var(--orange);
+			border-bottom: 3px solid var(--orange);
+			padding-bottom: 0.25em;
+			display: inline-block;
+		}
 
-				<!-- Zeitregeln -->
-				<section>
-					<h2>Zeitregeln</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Regel</th>
-								<th>Beschreibung</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><strong>24-Sekunden-Regel</strong><br>(Shot Clock)</td>
-								<td>Ein Angriff darf maximal 24 Sekunden dauern. Die Uhr startet nach dem Einwurf und wird zurückgesetzt, wenn der Ball den Ring berührt oder die andere Mannschaft in Ballbesitz kommt.</td>
-							</tr>
-							<tr>
-								<td><strong>8-Sekunden-Regel</strong></td>
-								<td>Nach dem Ballbesitz muss die Mannschaft den Ball innerhalb von 8 Sekunden aus der eigenen Hälfte in die gegnerische Hälfte bringen.</td>
-							</tr>
-							<tr>
-								<td><strong>5-Sekunden-Regel</strong></td>
-								<td>Beim Einwurf darf der Ball maximal 5 Sekunden gehalten werden. Ein eng bewachter Spieler muss innerhalb von 5 Sekunden dribbeln, abspielen oder werfen.</td>
-							</tr>
-							<tr>
-								<td><strong>3-Sekunden-Regel</strong></td>
-								<td>Ein Angriffsspieler darf sich maximal 3 Sekunden ununterbrochen in der gegnerischen Restricted Area (Zone unter dem Korb) aufhalten.</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
+		.reveal p, .reveal li, .reveal td {
+			color: var(--text);
+			font-size: 0.95em;
+			line-height: 1.5;
+		}
 
-				<!-- Weitere wichtige Regeln -->
-				<section>
-					<h2>Weitere wichtige Regeln</h2>
-					<ul>
-						<li><strong>Doppeldribbling:</strong> Der Ball darf nach dem Stoppen des Dribblings nicht erneut gedribbelt werden.</li>
-						<li><strong>Schritte / Travelling:</strong> Mehr als zwei Schritte ohne Dribbling sind nicht erlaubt.</li>
-						<li><strong>Fouls:</strong> Persönliche Fouls, unsportliche Fouls, technische Fouls. Nach 5 persönlichen Fouls ist ein Spieler disqualifiziert.</li>
-						<li><strong>Aus:</strong> Der Ball ist aus, wenn er die Seiten- oder Grundlinie berührt oder ein Spieler den Ball außerhalb des Feldes berührt.</li>
-					</ul>
-				</section>
+		.reveal ul {
+			list-style: none;
+			padding-left: 0;
+		}
 
-				<!-- Abschluss -->
-				<section>
-					<h2>Viel Spaß beim Basketball!</h2>
-					<p>Diese Übersicht basiert auf den FIBA-Regeln.</p>
-				</section>
+		.reveal ul li {
+			position: relative;
+			padding-left: 1.6em;
+			margin-bottom: 0.7em;
+		}
 
-			</div>
+		.reveal ul li::before {
+			content: "●";
+			color: var(--orange);
+			position: absolute;
+			left: 0;
+			font-size: 0.7em;
+			top: 0.25em;
+		}
+
+		/* Title slide special */
+		.reveal .title-slide {
+			text-align: center !important;
+		}
+
+		.reveal .title-slide h1 {
+			font-size: 3.2em;
+			background: linear-gradient(135deg, #fff 30%, var(--orange));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 0.2em;
+		}
+
+		.reveal .title-slide .subtitle {
+			font-size: 1.15em;
+			color: var(--text-muted);
+			margin-top: 0.5em;
+		}
+
+		.reveal .title-slide .ball {
+			font-size: 4em;
+			margin-bottom: 0.3em;
+			display: block;
+			animation: bounce 2s ease-in-out infinite;
+		}
+
+		@keyframes bounce {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-12px); }
+		}
+
+		/* Cards */
+		.card-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.2em;
+			margin-top: 1em;
+		}
+
+		.card-grid.three {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 1.1em 1.2em;
+			transition: all 0.25s ease;
+		}
+
+		.card:hover {
+			background: var(--bg-card-hover);
+			border-color: var(--orange);
+			transform: translateY(-3px);
+		}
+
+		.card .icon {
+			font-size: 1.8em;
+			margin-bottom: 0.35em;
+			display: block;
+		}
+
+		.card h3 {
+			font-size: 1.05em;
+			color: var(--orange);
+			margin: 0 0 0.3em 0;
+			border: none;
+			padding: 0;
+		}
+
+		.card p {
+			font-size: 0.82em;
+			color: var(--text-muted);
+			margin: 0;
+			line-height: 1.4;
+		}
+
+		/* Big number cards for points */
+		.points-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.4em;
+			margin-top: 1.5em;
+		}
+
+		.point-card {
+			background: linear-gradient(160deg, rgba(255,107,0,0.12), rgba(255,107,0,0.03));
+			border: 2px solid var(--orange);
+			border-radius: 16px;
+			padding: 1.5em 1em;
+			text-align: center;
+			transition: transform 0.25s ease, box-shadow 0.25s ease;
+		}
+
+		.point-card:hover {
+			transform: scale(1.05);
+			box-shadow: 0 0 30px rgba(255, 107, 0, 0.25);
+		}
+
+		.point-card .number {
+			font-size: 3.2em;
+			font-weight: 800;
+			color: var(--orange);
+			line-height: 1;
+			margin-bottom: 0.15em;
+		}
+
+		.point-card .label {
+			font-size: 0.85em;
+			color: var(--text);
+			font-weight: 600;
+		}
+
+		.point-card .desc {
+			font-size: 0.7em;
+			color: var(--text-muted);
+			margin-top: 0.35em;
+		}
+
+		/* Time rule rows */
+		.rule-list {
+			display: flex;
+			flex-direction: column;
+			gap: 0.9em;
+			margin-top: 0.8em;
+		}
+
+		.rule-item {
+			display: flex;
+			gap: 1em;
+			align-items: flex-start;
+			background: var(--bg-card);
+			border-left: 4px solid var(--orange);
+			border-radius: 0 10px 10px 0;
+			padding: 0.9em 1.1em;
+		}
+
+		.rule-item .time-badge {
+			background: var(--orange);
+			color: #111;
+			font-weight: 800;
+			font-size: 0.95em;
+			padding: 0.35em 0.7em;
+			border-radius: 8px;
+			min-width: 3.2em;
+			text-align: center;
+			flex-shrink: 0;
+		}
+
+		.rule-item .rule-content h3 {
+			font-size: 0.95em;
+			color: #fff;
+			margin: 0 0 0.2em 0;
+			border: none;
+			padding: 0;
+		}
+
+		.rule-item .rule-content p {
+			font-size: 0.78em;
+			color: var(--text-muted);
+			margin: 0;
+			line-height: 1.4;
+		}
+
+		/* Footer note */
+		.footer-note {
+			font-size: 0.7em !important;
+			color: var(--text-muted) !important;
+			margin-top: 1.5em;
+			opacity: 0.8;
+		}
+
+		/* End slide */
+		.reveal .end-slide {
+			text-align: center !important;
+		}
+
+		.reveal .end-slide h2 {
+			border: none;
+			color: #fff;
+			font-size: 2.2em;
+		}
+
+		.reveal .end-slide .ball-big {
+			font-size: 3.5em;
+			margin: 0.4em 0;
+		}
+
+		/* Accent text */
+		.accent {
+			color: var(--orange);
+			font-weight: 700;
+		}
+
+		/* Smaller text helper */
+		.reveal .small {
+			font-size: 0.75em;
+			color: var(--text-muted);
+		}
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- ========== TITEL ========== -->
+			<section class="title-slide">
+				<span class="ball">🏀</span>
+				<h1>Basketball Regeln</h1>
+				<p class="subtitle">Die wichtigsten FIBA-Regeln im Überblick</p>
+			</section>
+
+			<!-- ========== GRUNDLAGEN ========== -->
+			<section>
+				<h2>Grundlagen</h2>
+				<div class="card-grid three">
+					<div class="card">
+						<span class="icon">⏱️</span>
+						<h3>Spielzeit</h3>
+						<p>4 × 10 Minuten<br>mit Pausen dazwischen</p>
+					</div>
+					<div class="card">
+						<span class="icon">🎯</span>
+						<h3>Ziel</h3>
+						<p>Mehr Punkte als der Gegner erzielen</p>
+					</div>
+					<div class="card">
+						<span class="icon">⏸️</span>
+						<h3>Pausen</h3>
+						<p>2 Min. zwischen Vierteln<br>15 Min. zur Halbzeit</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ========== TEAMS ========== -->
+			<section>
+				<h2>Teams & Spieler</h2>
+				<div class="card-grid">
+					<div class="card">
+						<span class="icon">👥</span>
+						<h3>Auf dem Feld</h3>
+						<p>2 Mannschaften mit je <span class="accent">5 Spielern</span> gleichzeitig auf dem Feld</p>
+					</div>
+					<div class="card">
+						<span class="icon">🪑</span>
+						<h3>Bank</h3>
+						<p>Maximal <span class="accent">7 Auswechselspieler</span> pro Team (Kader meist 12)</p>
+					</div>
+					<div class="card">
+						<span class="icon">🔄</span>
+						<h3>Auswechslungen</h3>
+						<p>Unbegrenzt möglich – während Spielunterbrechungen</p>
+					</div>
+					<div class="card">
+						<span class="icon">🚫</span>
+						<h3>Disqualifikation</h3>
+						<p>Nach <span class="accent">5 persönlichen Fouls</span> muss ein Spieler vom Feld</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ========== PUNKTE ========== -->
+			<section>
+				<h2>Punktevergabe</h2>
+				<div class="points-grid">
+					<div class="point-card">
+						<div class="number">1</div>
+						<div class="label">Freiwurf</div>
+						<div class="desc">nach einem Foul</div>
+					</div>
+					<div class="point-card">
+						<div class="number">2</div>
+						<div class="label">Feldwurf</div>
+						<div class="desc">innerhalb der Dreierlinie</div>
+					</div>
+					<div class="point-card">
+						<div class="number">3</div>
+						<div class="label">Dreier</div>
+						<div class="desc">hinter der Dreierlinie</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ========== ZEITREGELN ========== -->
+			<section>
+				<h2>Zeitregeln</h2>
+				<div class="rule-list">
+					<div class="rule-item">
+						<div class="time-badge">24s</div>
+						<div class="rule-content">
+							<h3>Shot Clock</h3>
+							<p>Ein Angriff darf maximal 24 Sekunden dauern. Die Uhr startet nach dem Einwurf und wird zurückgesetzt, wenn der Ball den Ring berührt oder die andere Mannschaft den Ball bekommt.</p>
+						</div>
+					</div>
+					<div class="rule-item">
+						<div class="time-badge">8s</div>
+						<div class="rule-content">
+							<h3>8-Sekunden-Regel</h3>
+							<p>Nach Ballbesitz muss der Ball innerhalb von 8 Sekunden aus der eigenen Hälfte in die gegnerische Hälfte gebracht werden.</p>
+						</div>
+					</div>
+					<div class="rule-item">
+						<div class="time-badge">5s</div>
+						<div class="rule-content">
+							<h3>5-Sekunden-Regel</h3>
+							<p>Beim Einwurf max. 5 Sekunden halten. Ein eng bewachter Spieler muss innerhalb von 5 Sekunden dribbeln, abspielen oder werfen.</p>
+						</div>
+					</div>
+					<div class="rule-item">
+						<div class="time-badge">3s</div>
+						<div class="rule-content">
+							<h3>3-Sekunden-Regel</h3>
+							<p>Ein Angriffsspieler darf sich maximal 3 Sekunden ununterbrochen in der gegnerischen Restricted Area (Zone unter dem Korb) aufhalten.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ========== WEITERE REGELN ========== -->
+			<section>
+				<h2>Weitere wichtige Regeln</h2>
+				<div class="card-grid">
+					<div class="card">
+						<span class="icon">🏀</span>
+						<h3>Doppeldribbling</h3>
+						<p>Nach dem Stoppen des Dribblings darf der Ball nicht erneut gedribbelt werden.</p>
+					</div>
+					<div class="card">
+						<span class="icon">👟</span>
+						<h3>Schritte / Travelling</h3>
+						<p>Mehr als zwei Schritte ohne Dribbling sind nicht erlaubt.</p>
+					</div>
+					<div class="card">
+						<span class="icon">✋</span>
+						<h3>Fouls</h3>
+						<p>Persönliche, unsportliche & technische Fouls. Nach 5 persönlichen Fouls ist Schluss.</p>
+					</div>
+					<div class="card">
+						<span class="icon">📏</span>
+						<h3>Aus</h3>
+						<p>Der Ball ist aus, wenn er die Seiten- oder Grundlinie berührt oder ein Spieler ihn außerhalb des Feldes berührt.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ========== ABSCHLUSS ========== -->
+			<section class="end-slide">
+				<div class="ball-big">🏀</div>
+				<h2>Viel Spaß beim Basketball!</h2>
+				<p class="footer-note">Übersicht basierend auf den aktuellen FIBA-Regeln</p>
+			</section>
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="dist/plugin/notes.js"></script>
-		<script src="dist/plugin/markdown.js"></script>
-		<script src="dist/plugin/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-			});
-		</script>
-	</body>
+	<script src="dist/reveal.js"></script>
+	<script src="dist/plugin/notes.js"></script>
+	<script src="dist/plugin/markdown.js"></script>
+	<script src="dist/plugin/highlight.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			transition: 'slide',
+			backgroundTransition: 'fade',
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+		});
+	</script>
+</body>
 </html>
